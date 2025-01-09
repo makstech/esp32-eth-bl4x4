@@ -59,12 +59,6 @@ binary_sensor:
       <<: *165button_pin
       number: 2
   - <<: *165button
-    id: button_3
-    name: "Button 3"
-    pin:
-      <<: *165button_pin
-      number: 2
-  - <<: *165button
     id: button_4
     name: "Button 4"
     pin:
