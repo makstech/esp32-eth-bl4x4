@@ -20,10 +20,6 @@ api:
 ota:
   - platform: esphome
 
-# In combination with the `ap` this allows the user
-# to provision wifi credentials to the device.
-captive_portal:
-
 # Ethernet
 ethernet:
   type: LAN8720
