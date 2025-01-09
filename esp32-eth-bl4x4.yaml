@@ -1,0 +1,152 @@
+esphome:
+  name: esp32-eth-bl4x4
+  friendly_name: ESP32-ETH-BL4x4
+  # Automatically add the mac address to the name
+  # so you can use a single firmware for all devices
+  name_add_mac_suffix: true
+
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+
+# To be able to get logs from the device via serial and api.
+logger:
+
+# API is a requirement of the dashboard import.
+api:
+
+# OTA is required for Over-the-Air updating
+ota:
+  - platform: esphome
+
+wifi:
+  # Set up a wifi access point using the device name above
+  ap:
+
+# In combination with the `ap` this allows the user
+# to provision wifi credentials to the device.
+captive_portal:
+
+# Ethernet
+ethernet:
+  type: LAN8720
+  mdc_pin: GPIO23
+  mdio_pin: GPIO18
+  clk_mode: GPIO17_OUT
+  phy_addr: 0
+
+# Shift register
+sn74hc165:
+  - id: buttons_hub
+    clock_pin: GPIO33
+    data_pin: GPIO34
+    load_pin: GPIO32
+    sr_count: 2
+
+# Buttons
+binary_sensor:
+  - &165button
+    id: button_1
+    name: "Button 1"
+    platform: gpio
+    pin: &165button_pin
+      sn74hc165: buttons_hub
+      number: 0
+      inverted: true
+  - <<: *165button
+    id: button_2
+    name: "Button 2"
+    pin:
+      <<: *165button_pin
+      number: 1
+  - <<: *165button
+    id: button_3
+    name: "Button 3"
+    pin:
+      <<: *165button_pin
+      number: 2
+  - <<: *165button
+    id: button_3
+    name: "Button 3"
+    pin:
+      <<: *165button_pin
+      number: 2
+  - <<: *165button
+    id: button_4
+    name: "Button 4"
+    pin:
+      <<: *165button_pin
+      number: 3
+  - <<: *165button
+    id: button_5
+    name: "Button 5"
+    pin:
+      <<: *165button_pin
+      number: 4
+  - <<: *165button
+    id: button_6
+    name: "Button 6"
+    pin:
+      <<: *165button_pin
+      number: 5
+  - <<: *165button
+    id: button_7
+    name: "Button 7"
+    pin:
+      <<: *165button_pin
+      number: 6
+  - <<: *165button
+    id: button_8
+    name: "Button 8"
+    pin:
+      <<: *165button_pin
+      number: 7
+  - <<: *165button
+    id: button_9
+    name: "Button 9"
+    pin:
+      <<: *165button_pin
+      number: 8
+  - <<: *165button
+    id: button_10
+    name: "Button 10"
+    pin:
+      <<: *165button_pin
+      number: 9
+  - <<: *165button
+    id: button_11
+    name: "Button 11"
+    pin:
+      <<: *165button_pin
+      number: 10
+  - <<: *165button
+    id: button_12
+    name: "Button 12"
+    pin:
+      <<: *165button_pin
+      number: 11
+  - <<: *165button
+    id: button_13
+    name: "Button 13"
+    pin:
+      <<: *165button_pin
+      number: 12
+  - <<: *165button
+    id: button_14
+    name: "Button 14"
+    pin:
+      <<: *165button_pin
+      number: 13
+  - <<: *165button
+    id: button_15
+    name: "Button 15"
+    pin:
+      <<: *165button_pin
+      number: 14
+  - <<: *165button
+    id: button_16
+    name: "Button 16"
+    pin:
+      <<: *165button_pin
+      number: 15

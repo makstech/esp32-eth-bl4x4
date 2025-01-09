@@ -1,4 +1,4 @@
 # CHANGEME: Set these variable to your liking
-title: ESPHome Project Template
-description: Powered by ESPHome and ESP Web Tools
+title: ESP32-ETH-BL4x4
+description: Ethernet 4x4 Button Matrix with Ethernet and Addressable LEDs, Powered by ESPHome and ESP Web Tools
 theme: jekyll-theme-slate
